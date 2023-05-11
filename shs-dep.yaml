@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: http-server
-          image: esacif/simple-http-server:20230216
+          image: esacif/simple-http-server:20230314
           ports:
             - containerPort: 80
             - containerPort: 8080
