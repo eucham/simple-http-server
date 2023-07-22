@@ -1,3 +1,3 @@
-module github.com/joengjyu/simple-http-server
+module github.com/feiyudev/simple-http-server
 
-go 1.19
+go 1.20

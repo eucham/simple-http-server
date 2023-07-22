@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: http-server
-          image: esacif/simple-http-server:20230314
+          image: ghcr.io/feiyudev/shs:latest
           ports:
             - containerPort: 80
             - containerPort: 8080
