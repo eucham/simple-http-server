@@ -15,7 +15,7 @@ COPY --from=builder /src/bin/simple-http-server /root/simple-http-server
 # dnsutils 安装 dig 命令
 RUN sed -i 's|//.*archive.ubuntu.com|//mirrors.ustc.edu.cn|g' /etc/apt/sources.list \
     && apt update \
-    && apt install -y zsh curl wget git vim tree jq yq \
+    && apt install -y zsh curl wget git vim tree jq yq openssh-client \
     && apt install -y bridge-utils dnsutils iproute2 netcat-openbsd tcpdump inetutils-ping inetutils-telnet inetutils-traceroute \
     && git clone https://github.com/ohmyzsh/ohmyzsh.git /root/.oh-my-zsh  \
     && git clone https://github.com/zsh-users/zsh-syntax-highlighting.git /root/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting \
