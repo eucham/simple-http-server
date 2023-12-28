@@ -11,7 +11,7 @@ ARCHES = arm64 amd64
 
 build-push-multiarch:
 	@for ARCH in $ARCHES; do \
-	  docker buildx build -t $(REPO)/shs:$(TAG)-$$ARCH --platform linux/$$ARCH --load .; \
+	  docker buildx build -t $(REPO)/shs:$(TAG)-$$ARCH --platform linux/$$ARCH --load --provenance=false .; \
 	  docker push $(REPO)/shs:$(TAG)-$$ARCH; \
   	done
 	@docker manifest create $(INSECURE) $(REPO)/shs:$(TAG) $(foreach osarch, $(ARCHES), $(REPO)/shs:$(TAG)-${osarch})
