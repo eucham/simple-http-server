@@ -1,5 +1,5 @@
 TAG ?= $(shell date '+%Y%m%d')
-REPO ?= ghcr.io/feiyudev
+REPO ?= ghcr.io/eucham
 ifneq ($(SV),)
 SUB_VER = .$(SV)
 endif
@@ -19,4 +19,4 @@ build-push-multiarch:
 	@docker manifest inspect $(INSECURE) $(REPO)/shs:$(TAG)
 
 build:
-	docker buildx build -t $(REPO)/shs:$(TAG)$(SUB_VER) --platform linux/arm64 --load --provenance=false .
+	docker build -t $(REPO)/shs:$(TAG)$(SUB_VER) --platform linux/amd64 --load --provenance=false .
