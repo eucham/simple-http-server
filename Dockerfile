@@ -4,7 +4,7 @@ COPY go.mod main.go /src/
 RUN CGO_ENABLED=0 go build -o bin/simple-http-server main.go && \
     chmod +x bin/simple-http-server
 
-FROM archlinux:base-20241020.0.271562
+FROM ghcr.io/menci/archlinuxarm:base-20241023.11474076292
 LABEL org.opencontainers.image.authors="euchamyeung"
 LABEL author="euchamyeung@gmail.com"
 
