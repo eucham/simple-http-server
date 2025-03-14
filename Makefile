@@ -1,5 +1,5 @@
 TAG ?= $(shell date '+%Y%m%d')
-REPO ?= ghcr.io/feiyudev
+REPO ?= ghcr.io/eucham
 ifneq ($(SV),)
 SUB_VER = .$(SV)
 endif
@@ -20,3 +20,8 @@ build-push-multiarch:
 
 build:
 	docker buildx build -t $(REPO)/shs:$(TAG)$(SUB_VER) --platform linux/arm64 --load --provenance=false .
+
+build-podman:
+	@podman manifest create shs:$(TAG)
+	@podman build --tls-verify=false --platform linux/arm64,linux/amd64 -f Dockerfile --manifest localhost/shs:$(TAG) .
+	@podman manifest push --tls-verify=false localhost/shs:$(TAG) $(REPO)/shs:$(TAG) $(REPO)/shs:latest

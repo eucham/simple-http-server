@@ -5,8 +5,8 @@ RUN CGO_ENABLED=0 go build -o bin/simple-http-server main.go && \
     chmod +x bin/simple-http-server
 
 FROM ubuntu:24.04
-LABEL org.opencontainers.image.authors="feiyudev"
-LABEL author="feiyu.dev@gmail.com"
+LABEL org.opencontainers.image.authors="eucham"
+LABEL author="euchamyeung@gmail.com"
 
 COPY --from=builder /src/bin/simple-http-server /root/simple-http-server
 
