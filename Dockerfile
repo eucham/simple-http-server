@@ -14,7 +14,7 @@ COPY --from=builder /src/bin/simple-http-server /root/simple-http-server
 # iproute2 安装 ip 命令
 # dnsutils 安装 dig 命令
 RUN apt update && apt upgrade -y
-RUN apt install -y zsh curl git vim tree jq yq openssh-client nfs-common
+RUN apt install -y zsh curl git vim tree jq yq openssh-client nfs-common apache2-utils
 RUN apt install -y bridge-utils dnsutils iproute2 netcat-openbsd tcpdump inetutils-ping inetutils-telnet inetutils-traceroute
 RUN git clone https://github.com/ohmyzsh/ohmyzsh.git /root/.oh-my-zsh  \
     && git clone https://github.com/zsh-users/zsh-syntax-highlighting.git /root/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting \
