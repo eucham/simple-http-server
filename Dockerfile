@@ -23,5 +23,5 @@ RUN git clone https://github.com/ohmyzsh/ohmyzsh.git /root/.oh-my-zsh  \
     && sed -i '2s/# //g' /root/.zshrc \
     && sed -i 's/ZSH_THEME=.*/ZSH_THEME=ys/g' /root/.zshrc \
     && sed -i 's/plugins=(git)/plugins=(git zsh-syntax-highlighting zsh-autosuggestions)/' /root/.zshrc
-
+RUN curl -LO "https://dl.k8s.io/release/1.22.0/bin/linux/$(if [ "$(uname -m)" = "x86_64" ]; then echo "amd64"; else echo arm64; fi)/kubectl"
 CMD ["/root/simple-http-server"]
